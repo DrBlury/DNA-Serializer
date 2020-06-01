@@ -12,11 +12,11 @@ namespace DNASerializer
 
             BitArray compressedDNA = DNASerializer.Compress(DNA);
             Console.WriteLine("Compressed DNA.");
-            DNASerializer.serialize(compressedDNA, "testfile.DNA");
+            DNASerializer.Serialize(compressedDNA, "testfile.DNA");
             Console.WriteLine("Serialized DNA.");
-            BitArray deserializedDNA = DNASerializer.deserialize("testfile.DNA");
+            BitArray deserializedDNA = DNASerializer.Deserialize("testfile.DNA");
             Console.WriteLine("Deserialized DNA.");
-            String decompressedDNA = DNASerializer.DeCompress(deserializedDNA);
+            String decompressedDNA = DNASerializer.Decompress(deserializedDNA);
 
             Console.WriteLine(decompressedDNA);
 

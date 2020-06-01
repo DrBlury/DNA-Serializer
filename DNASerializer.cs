@@ -10,7 +10,7 @@ namespace DNASerializer
 {
     class DNASerializer
     {
-
+        String pathOfExecutable = AppDomain.CurrentDomain.BaseDirectory + "/";
         //Compresses and Decompresses a String containing the following letters:
         // A = Adenine - 00
         // T = Thymine - 01
@@ -53,7 +53,7 @@ namespace DNASerializer
         }
 
 
-        public static string DeCompress(BitArray compressedDNA)
+        public static string Decompress(BitArray compressedDNA)
         {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < compressedDNA.Length - 1; i += 2)
@@ -76,9 +76,9 @@ namespace DNASerializer
             return sb.ToString();
         }
 
-        public static void serialize(BitArray bitArray, String filename)
+        public static void Serialize(BitArray bitArray, String filename)
         {
-            Stream stream = new FileStream(@"C:\Users\DrBlury\Desktop\test\"+ filename, FileMode.Create);
+            Stream stream = new FileStream(pathOfExecutable + filename, FileMode.Create);
             BinaryFormatter formatter = new BinaryFormatter();
             try
             {
@@ -94,9 +94,9 @@ namespace DNASerializer
                 stream.Close();
             }
         }
-        public static BitArray deserialize(String filename)
+        public static BitArray Deserialize(String filename)
         {
-            Stream stream = new FileStream(@"C:\Users\DrBlury\Desktop\test\"+filename, FileMode.Open);
+            Stream stream = new FileStream(pathOfExecutable + filename, FileMode.Open);
             BinaryFormatter formatter = new BinaryFormatter();
             BitArray bitArray = new BitArray(new bool[0]);
             try
